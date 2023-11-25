@@ -97,10 +97,10 @@
 
         function getLabelOffset(d) {
             switch (d) {
-                case 'Tinggi': return "> 64.000";
-                case 'Sedang':   return "32.000 - 64.000";
-                case 'Rendah':   return "< 32.000";
-                default: return "< 32.000";
+                case 'Tinggi': return "> 234.880";
+                case 'Sedang':   return "117.440 - 234.880";
+                case 'Rendah':   return "< 117.440";
+                default: return "< 117.440";
             }
         }
         var map_mangrove = L.map("map_mangrove", {
@@ -160,7 +160,7 @@
                         style: function(feature) {
                             if (view && view == 'carbon-offset'){
                                 const cs = feature.properties.cs
-                                console.log(cs)
+
                                 if (cs > 64000){
                                     return {color: "#008000"};
                                 } else if (cs <= 64000 && cs >= 32000){
