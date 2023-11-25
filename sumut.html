@@ -62,10 +62,11 @@
             for (const d of data){
                 const loc = jsonConvert(d[".geo"])
                 if (loc){
+                    const cs = parseFloat(d['cs'])
                     const geo = {
                         type: "Feature",
                         properties: {
-                            
+                            cs: isNaN(cs) ? 0 : cs,
                             name: d["KRTJ"],
                         },
                         geometry: loc
@@ -82,6 +83,24 @@
                 case 'Mangrove Sedang':   return "#FFFF00";
                 case 'Mangrove Jarang':   return "#FF0000";
                 default: return "#FF0000";
+            }
+        }
+
+        function getColorOffset(d) {
+            switch (d) {
+                case 'Tinggi': return "#008000";
+                case 'Sedang':   return "#FFFF00";
+                case 'Rendah':   return "#FF0000";
+                default: return "#FF0000";
+            }
+        }
+
+        function getLabelOffset(d) {
+            switch (d) {
+                case 'Tinggi': return "> 64.000";
+                case 'Sedang':   return "32.000 - 64.000";
+                case 'Rendah':   return "< 32.000";
+                default: return "< 32.000";
             }
         }
         var map_mangrove = L.map("map_mangrove", {
@@ -109,7 +128,7 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const density = urlParams.get('density')
-  
+        const view = urlParams.get('view')
         const chunkSize = 100; 
         const url = "sumut.json";
 
@@ -139,6 +158,17 @@
                     const geoData = sanitizedData(geoJSONData);
                     L.geoJSON(geoData, {
                         style: function(feature) {
+                            if (view && view == 'carbon-offset'){
+                                const cs = feature.properties.cs
+                                console.log(cs)
+                                if (cs > 64000){
+                                    return {color: "#008000"};
+                                } else if (cs <= 64000 && cs >= 32000){
+                                    return {color: "#FFFF00"};
+                                } else{
+                                    return {color: "#FF0000"};
+                                }
+                            }
                             switch (feature.properties.name) {
                                 case 'Mangrove Lebat': return {color: "#008000"};
                                 case 'Mangrove Sedang':   return {color: "#FFFF00"};

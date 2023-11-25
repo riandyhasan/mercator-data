@@ -18,6 +18,14 @@ This repository contains HTML files to visualize mangrove data using Leaflet. Ea
 
 You can filter the displayed data by adding a density query parameter to the URL. For example:
 
+## View
+
+- Display base on density mangrove: `kalbar.html?view=density`
+- Display base on carbon offset: `kalbar.html?view=carbon-offset`
+  _Default: Base on density_
+
+## Density
+
 - Display only dense mangroves: `kalbar.html?density=lebat`
 - Display only medium-density mangroves: `kalbar.html?density=sedang`
 - Display only sparse mangroves: `kalbar.html?density=jarang`
