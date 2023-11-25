@@ -78,7 +78,7 @@
 
         function getColor(d) {
             switch (d) {
-                case 'Mangrove Lebat': return "#FF0000";
+                case 'Mangrove Lebat': return "#008000";
                 case 'Mangrove Sedang':   return "#FFFF00";
                 case 'Mangrove Jarang':   return "#FF0000";
                 default: return "#FF0000";
@@ -140,7 +140,7 @@
                     L.geoJSON(geoData, {
                         style: function(feature) {
                             switch (feature.properties.name) {
-                                case 'Mangrove Lebat': return {color: "#FF0000"};
+                                case 'Mangrove Lebat': return {color: "#008000"};
                                 case 'Mangrove Sedang':   return {color: "#FFFF00"};
                                 case 'Mangrove Jarang':   return {color: "#FF0000"};
                                 default: return {color: "#FF0000"};
