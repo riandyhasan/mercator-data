@@ -26,8 +26,8 @@ You can filter the displayed data by adding a density query parameter to the URL
 
 ## Density
 
-- Display only dense mangroves: `kalbar.html?density=lebat`
-- Display only medium-density mangroves: `kalbar.html?density=sedang`
-- Display only sparse mangroves: `kalbar.html?density=jarang`
+- Display only dense mangroves: `kalbar.html?density=dense`
+- Display only medium-density mangroves: `kalbar.html?density=medium`
+- Display only sparse mangroves: `kalbar.html?density=sparse`
 
 _Note: If the density query parameter is not provided, all data will be displayed by default._

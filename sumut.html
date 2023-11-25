@@ -97,10 +97,10 @@
 
         function getLabelOffset(d) {
             switch (d) {
-                case 'Tinggi': return "> 234.880";
-                case 'Sedang':   return "117.440 - 234.880";
-                case 'Rendah':   return "< 117.440";
-                default: return "< 117.440";
+                case 'Tinggi': return "> 234,880";
+                case 'Sedang':   return "117,440 - 234,880";
+                case 'Rendah':   return "< 117,440";
+                default: return "< 117,440";
             }
         }
         var map_mangrove = L.map("map_mangrove", {
@@ -136,7 +136,7 @@
 
         legend.onAdd = function (map) {
             const div = L.DomUtil.create('div', 'legend');
-            const labels = ['Mangrove Lebat', 'Mangrove Sedang', 'Mangrove Jarang'];
+            const labels = ['Dense', 'Medium', 'Sparse'];
 
             // loop through our density intervals and generate a label with a colored square for each interval
             for (let i = 0; i < labels.length; i++) {
@@ -179,9 +179,9 @@
                         filter: function(feature, layer) {
                             if (density){
                                     switch (feature.properties.name) {
-                                    case 'Mangrove Lebat': return density == 'lebat'
-                                    case 'Mangrove Sedang':   return density == 'sedang'
-                                    case 'Mangrove Jarang':   return density == 'jarang'
+                                    case 'Mangrove Lebat': return density == 'dense'
+                                    case 'Mangrove Sedang':   return density == 'medium'
+                                    case 'Mangrove Jarang':   return density == 'sparse'
                                     default: return false
                                 }
                             } else{
