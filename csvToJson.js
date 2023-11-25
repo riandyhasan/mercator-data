@@ -1,7 +1,7 @@
 const fs = require("fs");
 const csv = require("csv-parser");
 
-// Replace 'input.csv' with your CSV file name and 'output.json' with the desired JSON output file name
+// Replace 'input.csv' with your CSV file name
 const csvFilePath = "lengkap.csv";
 let provinces = [
   {
@@ -17,7 +17,7 @@ let provinces = [
     path: "kep_riau.json",
   },
   {
-    name: "BANGKA BELITUNG",
+    name: "KEPULAUAN BANGKA BELITUNG",
     path: "bangka_belitung.json",
   },
   {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mecrator Papua Barat</title>
+    <title>Mecrator Bangka Belitung</title>
     <style>html, body {width: 100%; height: 100%; margin: 0; padding: 0;}</style>
     <style>#map_mangrove {position: absolute; top: 0; bottom: 0; right: 0; left: 0;}</style>
     <style>.legend {
@@ -85,9 +85,9 @@
             }
         }
         var map_mangrove = L.map("map_mangrove", {
-            center: [-2.2699, 130.0804],
+            center: [-3.3411, 108.4406],
             crs: L.CRS.EPSG3857,
-            zoom: 6.5,
+            zoom: 7.2,
             zoomControl: true,
             preferCanvas: false,
         });
@@ -111,7 +111,7 @@
         const density = urlParams.get('density')
   
         const chunkSize = 100; 
-        const url = "papua_barat.json";
+        const url = "bangka_belitung.json";
 
         const legend = L.control({position: 'bottomright'});
 
