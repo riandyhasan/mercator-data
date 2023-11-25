@@ -27,20 +27,18 @@
         function sanitizedData(data){
             let final = []
             for (const d of data){
-                if (d['PROVINSI'] == 'SUMATERA UTARA'){
-                    const loc = jsonConvert(d[".geo"])
-                    if (loc){
-                        const geo = {
-                            type: "Feature",
-                            properties: {
-                                id: d["OBJECTID"],
-                                name: d["KRTJ"],
+                const loc = jsonConvert(d[".geo"])
+                if (loc){
+                    const geo = {
+                        type: "Feature",
+                        properties: {
+                            id: d["OBJECTID"],
+                            name: d["KRTJ"],
 
-                            },
-                            geometry: loc
-                        }
-                        final.push(geo)
+                        },
+                        geometry: loc
                     }
+                    final.push(geo)
                 }
             }
             return final
@@ -71,7 +69,7 @@
         ).addTo(map_sumut);
   
         const chunkSize = 100; 
-        const url = "https://storage.googleapis.com/mercator-data/lengkap_plus_prov.json";
+        const url = "sumut.json";
 
         function fetchAndDisplay() {
             fetch(url)
