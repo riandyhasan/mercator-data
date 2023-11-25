@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mecrator Sumatera Utara</title>
+    <title>Mecrator Riau</title>
     <style>html, body {width: 100%; height: 100%; margin: 0; padding: 0;}</style>
     <style>#map_mangrove {position: absolute; top: 0; bottom: 0; right: 0; left: 0;}</style>
     <style>.legend {
@@ -85,7 +85,7 @@
             }
         }
         var map_mangrove = L.map("map_mangrove", {
-            center: [2.1154, 99.5451],
+            center: [0.2933, 101.7068],
             crs: L.CRS.EPSG3857,
             zoom: 7,
             zoomControl: true,
@@ -111,7 +111,7 @@
         const density = urlParams.get('density')
   
         const chunkSize = 100; 
-        const url = "sumut.json";
+        const url = "https://storage.googleapis.com/mercator-data/riau.json";
 
         const legend = L.control({position: 'bottomright'});
 
@@ -119,7 +119,6 @@
             const div = L.DomUtil.create('div', 'legend');
             const labels = ['Mangrove Lebat', 'Mangrove Sedang', 'Mangrove Jarang'];
 
-            // loop through our density intervals and generate a label with a colored square for each interval
             for (let i = 0; i < labels.length; i++) {
                 console.log()
                 div.innerHTML +=
