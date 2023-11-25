@@ -134,11 +134,24 @@
 
         const legend = L.control({position: 'bottomright'});
 
-        legend.onAdd = function (map) {
+        if (view && view == 'carbon-offset'){
+            legend.onAdd = function (map) {
+            const div = L.DomUtil.create('div', 'legend');
+            const labels = ['Tinggi', 'Sedang', 'Rendah'];
+
+            for (let i = 0; i < labels.length; i++) {
+                div.innerHTML +=
+                    `<i style="background: ${getColorOffset(labels[i])}"></i><span>${getLabelOffset(labels[i])}</span><br>`;
+            }
+
+            return div;
+         };
+         legend.addTo(map_mangrove);
+        } else {
+            legend.onAdd = function (map) {
             const div = L.DomUtil.create('div', 'legend');
             const labels = ['Dense', 'Medium', 'Sparse'];
 
-            // loop through our density intervals and generate a label with a colored square for each interval
             for (let i = 0; i < labels.length; i++) {
                 console.log()
                 div.innerHTML +=
@@ -146,9 +159,9 @@
             }
 
             return div;
-        };
-
-        legend.addTo(map_mangrove);
+         };
+         legend.addTo(map_mangrove);
+        }
 
 
         function fetchAndDisplay() {
